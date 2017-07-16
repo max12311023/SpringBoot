@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="big-5">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+		<div th:if="${not #lists.isEmpty(dept2)}">
+			<h2>dept List</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>deptno</th>
+					<th>dname</th>
+					<th>loc</th>
+					
+				</tr>
+				<tr th:each="dept : ${dept2}">
+					<td th:text="${dept.deptno}">deptno</td>
+					<td th:text="${dept.dname}">dname</td>
+					<td th:text="${dept.loc}">loc</td>
+<!-- 					<td th:text="${dept.price}">price</td> -->
+<!-- 					<td><a th:href="${'/dept/' + dept.id}">View</a></td> -->
+<!-- 					<td><a th:href="${'/dept/edit/' + dept.id}">Edit</a></td> -->
+<!-- 					<td><a th:href="${'/dept/delete/' + dept.id}">Delete</a></td> -->
+				</tr>
+			</table>
+
+		</div>
+	</div>
+</body>
+</html>
