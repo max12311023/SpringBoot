@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="big-5">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+		<div th:if="${not #lists.isEmpty(wkf_table)}">
+			<h2>main List</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>SUBJECT</th>
+					
+					
+				</tr>
+				<tr th:each="main : ${wkf_table}">
+					<td th:text="${main.DBF_NAME}">DBF_NAME</td>
+				
+<!-- 					<td th:text="${main.price}">price</td> -->
+<!-- 					<td><a th:href="${'/main/' + main.id}">View</a></td> -->
+<!-- 					<td><a th:href="${'/main/edit/' + main.id}">Edit</a></td> -->
+<!-- 					<td><a th:href="${'/main/delete/' + main.id}">Delete</a></td> -->
+				</tr>
+			</table>
+
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="big-5">
+<title>Insert title here</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link th:href="@{//cdn.muicss.com/mui-latest/css/mui.min.css}"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" th:href="@{/style.css}" href="../../style.css" />
+<script th:src="@{//cdn.muicss.com/mui-latest/js/mui.min.js}"></script>
+
+
+</head>
+<body>
+	<div id="sidebar">
+		<div class="mui--text-white mui--text-display1 mui--align-vertical">TEST</div>
+	</div>
+	<div class="mui-appbar">
+		<!-- content -->
+	</div>
+	<div id="content" class="mui-container-fluid">
+		<div th:if="${not #lists.isEmpty(imb_main)}">
+			<div class="mui-row">
+				<div class="mui-col-sm-10 mui-col-sm-offset-1">
+					<br></br> <br></br>
+					<div class="mui--text-black-54 mui--text-body2">NEW POST</div>
+					<div class="mui-divider"></div>
+					<br></br>
+					<div th:each="main : ${imb_main}">
+						<a th:href="@{/get(data=${main.FLOW_NUM})}"><div
+								th:text="${main.SUBJECT}" class="mui--text-headline">MUI
+								Acquires New Features</div></a>
+						 <div class="mui--text-black-54">By <a href="#">Team MUI</a> 3 days ago</div>
+					</div>
+					<br></br> <br></br>
+				</div>
+			</div>
+		</div>
+
+		<div th:if="${not #lists.isEmpty(imb_one)}">
+			<div class="mui-row">
+				<div class="mui-col-sm-10 mui-col-sm-offset-1">
+					<br></br> <br></br>
+					<div class="mui--text-black-54 mui--text-body2">NEW POST</div>
+					<div class="mui-divider"></div>
+					<br></br>
+					<div th:each="main : ${imb_one}">
+						<div th:text="${main.SUBJECT}" class="mui--text-headline"></div>
+						<iframe id="Rrs10003"  name="Rrs10003" width="100%" height="400" class="textarea"  ></iframe>   
+						<!-- 					    <div th:inline="text">[[${main.DESCRIPTION}]]</div> -->
+						<script th:inline="javascript">
+							var message = [[${main.DESCRIPTION}]];
+							 var oRTE = frames["Rrs10003"].document;
+		                       oRTE.open();    
+		                       oRTE.write(message);
+		                       oRTE.close();
+							    
+							   
+							
+							
+							</script>
+					</div>
+					<br></br> <br></br>
+				    <div th:each="main : ${im_attach}">
+						<p th:inline="text"><a th:href="@{'/Image/'+${main.FILE_ID}}">[[${main.FILE_NAME}]]</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
