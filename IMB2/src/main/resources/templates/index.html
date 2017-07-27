@@ -11,12 +11,15 @@
 <link rel="stylesheet" th:href="@{/style.css}" href="../../style.css" />
 <script th:src="@{//cdn.muicss.com/mui-latest/js/mui.min.js}"></script>
 
+<script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+	th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
 
 </head>
 <body>
 	<div id="sidebar">
 		<div class="mui--text-white mui--text-display1 mui--align-vertical">TEST</div>
 	</div>
+
 	<div class="mui-appbar">
 		<!-- content -->
 	</div>
@@ -32,7 +35,8 @@
 						<a th:href="@{/get(data=${main.FLOW_NUM})}"><div
 								th:text="${main.SUBJECT}" class="mui--text-headline">MUI
 								Acquires New Features</div></a>
-						 <div class="mui--text-black-54">By <a href="#">Team MUI</a> 3 days ago</div>
+						<div class="mui--text-black-54" th:inline="text">By
+							[[${main.EMPNO}]]</div>
 					</div>
 					<br></br> <br></br>
 				</div>
@@ -48,27 +52,40 @@
 					<br></br>
 					<div th:each="main : ${imb_one}">
 						<div th:text="${main.SUBJECT}" class="mui--text-headline"></div>
-						<iframe id="Rrs10003"  name="Rrs10003" width="100%" height="400" class="textarea"  ></iframe>   
-						<!-- 					    <div th:inline="text">[[${main.DESCRIPTION}]]</div> -->
+						
+<!-- 			        iframe ¼gªk			
+<iframe id="Rrs10003"  name="Rrs10003" width="100%" height="400" class="textarea"  ></iframe>    -->					
+						<script th:inline="javascript"> 
+ 							var message = [[${main.DESCRIPTION}]];
+ 							 var oRTE = frames["Rrs10003"].document;
+ 		                       oRTE.open();    
+ 		                       oRTE.write(message);
+ 		                       oRTE.close();					
+ 					        </script> -->
+						
+						<div id="iframe">
+							<!--jquery ´¡¤Jhtml ¦ì§}-->
+						</div>
 						<script th:inline="javascript">
 							var message = [[${main.DESCRIPTION}]];
-							 var oRTE = frames["Rrs10003"].document;
-		                       oRTE.open();    
-		                       oRTE.write(message);
-		                       oRTE.close();
-							    
-							   
-							
-							
-							</script>
+							$("#iframe").html(message);
+
+					   </script>
 					</div>
 					<br></br> <br></br>
-				    <div th:each="main : ${im_attach}">
-						<p th:inline="text"><a th:href="@{'/Image/'+${main.FILE_ID}}">[[${main.FILE_NAME}]]</a></p>
+
+					<div th:each="main : ${im_attach}">
+						<p th:inline="text">
+							<a th:href="@{'/Image/'+${main.FILE_ID}}">[[${main.FILE_NAME}]]</a>
+						</p>
+
 					</div>
+
+
 				</div>
 			</div>
 		</div>
 	</div>
 </body>
+
 </html>

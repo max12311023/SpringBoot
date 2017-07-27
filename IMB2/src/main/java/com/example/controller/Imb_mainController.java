@@ -43,9 +43,11 @@ public class Imb_mainController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView list(){
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("imb_main", imb_mainService.listAllImb_main());
+//		modelAndView.addObject("imb_main", imb_mainService.listAllImb_main());
+		
+		modelAndView.addObject("imb_main",imb_mainService.getAll());
 		modelAndView.setViewName("index");
-
+		
 		return modelAndView;
 	}
 
@@ -62,6 +64,7 @@ public class Imb_mainController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("imb_one", imb_mainService.getImb_mainById(id));
 		modelAndView.addObject("im_attach", im_attachService.findIm_attach(id));
+//		modelAndView.addObject("name", imb_mainService.getEmp(imb_mainService.getImb_mainById(id).getFLOW_NUM()).getEMPNO());
 		modelAndView.setViewName("index");
 
 		return modelAndView;

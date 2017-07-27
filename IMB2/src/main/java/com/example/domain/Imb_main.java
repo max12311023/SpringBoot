@@ -1,11 +1,17 @@
 package com.example.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 import oracle.sql.CLOB;
 import oracle.sql.DATE;
@@ -31,6 +37,8 @@ public class Imb_main {
 	String  TOP                 ;
 
 	String  SUBJECT_E           ;
+	
+	
 	@Column(name="DESCRIPTION", columnDefinition="CLOB NOT NULL") 
 	@Lob 
 	String DESCRIPTION	;

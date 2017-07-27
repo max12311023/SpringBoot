@@ -13,7 +13,7 @@ import com.example.domain.Imb_main;
 
 public interface Im_attachRepository extends JpaRepository<Im_attach, Integer>{
 
-	@Query(" from Im_attach where flow_num=:id")
+	@Query("from Im_attach where flow_num=:id")
 	public Iterable<Im_attach> findIm_attach(@Param("id") String id);
 	
 	

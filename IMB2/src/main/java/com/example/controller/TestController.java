@@ -11,16 +11,22 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class TestController {
 
-	@RequestMapping("/")
-	public String index(ModelMap model){
-		
-		return "Hello World";
-	}
+//	@RequestMapping("/")
+//	public String index(ModelMap model){
+//		
+//		return "Hello World";
+//	}
 	//http://localhost:8081/index/123
 	@RequestMapping(value = "/index/{itemid}", method = RequestMethod.GET)
 	 public String show(@PathVariable("itemid") String itemid){	
 	        return "Hello "+itemid;
 	}
-	
+	@RequestMapping(value = "/" ,method = RequestMethod.GET)
+	public ModelAndView index(){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("index2");
+
+		return modelAndView;
+	}
 
 }
