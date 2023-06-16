@@ -1,8 +1,7 @@
 # SpringBoot
 Spring Boot Test
 
-IMB2 
-公佈欄系統範例
+
 
 SpringBootRestApiExample 
 Rest開發風格範例
