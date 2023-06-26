@@ -1,9 +1,9 @@
 # SpringBoot
 
-- 如果只是使用@RestController注解Controller，则Controller中的方法无法返回jsp页面，配置的视图解析器InternalResourceViewResolver不起作用，返回的内容就是Return 里的内容。
-- 例如：本来应该到success.jsp页面的，则其显示success.
-- 如果需要返回到指定页面，则需要用 @Controller配合视图解析器InternalResourceViewResolver才行。
-- 如果需要返回JSON，XML或自定义mediaType内容到页面，则需要在对应的方法上加上@ResponseBody注解。
+- 如果只是使用@RestController註解Controller，則Controller中的方法無法返回jsp頁面，配置的視圖解析器InternalResourceViewResolver不起作用，返回的內容就是Return 裡的內容。
+- 例如：本來應該到success.jsp頁面的，則其顯示success.
+- 如果需要返回到指定頁面，則需要用 @Controller配合視圖解析器InternalResourceViewResolver才行。
+- 如果需要返回JSON，XML或自定義mediaType內容到頁面，則需要在對應的方法上加上@ResponseBody註解。
 - 預設view 都放在classpath/template 底下
 - application.properties  設定spring 一些屬性server.port=8081 指定run 時的port
 
